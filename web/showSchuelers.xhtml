@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+
+    <p:growl id="growl" showDetail="true" sticky="true"/>
+    <h:panelGrid id="pg" columns="3">
+
+        <p:tree value="#{laborController.root}" var="node" id="tree"
+                selection="selectedNodes" selectionMode="multiple">
+
+            <p:ajax listener="#{laborController.onNodeSelect}" event="select"
+                    update=":growl,:xs"/>
+
+            <p:treeNode id="treeNode">
+                <h:outputText value="#{node}" id="lblNode"/>
+            </p:treeNode>
+
+        </p:tree>
+
+
+        <p:fieldset id="xs" legend="Ausgewählter Schüler" toggleable="false"
+                    toggleSpeed="500">
+            <br/>
+            <h:outputLabel value="Vorname: "/>
+            <br/>
+            <h:outputText value="#{laborController.ausg_firstname}"/>
+            <br/>
+            <br/>
+            <h:outputLabel value="Nachname: "/>
+            <br/>
+            <h:outputText value="#{laborController.ausg_lastname}"/>
+            <br/>
+            <br/>
+            <h:outputLabel value="Geschlecht: "/>
+            <br/>
+            <h:outputText value="#{laborController.ausg_geschl}"/>
+            <br/>
+            <br/>
+            <h:outputText value="Katalognummer: "/>
+            <br/>
+            <h:outputText value="#{laborController.ausg_kn}"/>
+
+
+        </p:fieldset>
+
+        <h:form id="fs">
+            <p:fieldset legend="Neuer Schüler anlegen" toggleable="true"
+                        collapsed="true" toggleSpeed="500">
+
+                <h:outputLabel for="firstname" value="Vorname: *"/>
+                <p:inputText id="firstname" value="#{laborController.firstname}"
+                             required="true" label="Firstname">
+                    <f:validateLength minimum="2"/>
+                </p:inputText>
+                <p:message for="firstname"/>
+
+                <h:outputLabel for="surname" value="Nachname: *"/>
+                <p:inputText id="surname" value="#{laborController.lastname}"
+                             required="true" label="Surname"/>
+                <p:message for="surname"/>
+
+                <h:outputText value="Weiblich ? "/>
+                <p:selectBooleanCheckbox value="#{laborController.weibl}"/>
+
+                <p:commandButton value="Speichern" update=":tree,fs"
+                                 actionListener="#{laborController.saveSchueler}"/>
+
+            </p:fieldset>
+        </h:form>
+
+    </h:panelGrid>
+
+
+</h:body>
+</html>
