@@ -13,6 +13,19 @@
       <facet type="jsf" name="JSF">
         <configuration />
       </facet>
+      <facet type="jsf" name="JSF2">
+        <configuration />
+      </facet>
+    </facet>
+    <facet type="web" name="Web2">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/web" relative="/" />
+        </webroots>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -23,8 +36,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0" level="application_server_libraries" />
+    <orderEntry type="library" exported="" name="jsf-2.0.1-FCS" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0" level="application_server_libraries" />
     <orderEntry type="library" name="jsf-2.0.1-FCS" level="project" />
-    <orderEntry type="library" name="jsf/primefaces-3.4.1" level="project" />
+    <orderEntry type="library" name="lib (2)" level="project" />
   </component>
 </module>
 

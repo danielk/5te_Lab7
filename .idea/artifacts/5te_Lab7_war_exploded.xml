@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="5te_Lab7:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/5te_Lab7_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="5te_Lab7" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jsf-2.0.1-FCS" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="5te_Lab7/web/Web" />
+      <element id="javaee-facet-resources" facet="5te_Lab7/web/Web2" />
+    </root>
+  </artifact>
+</component>
